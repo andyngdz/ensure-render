@@ -1,12 +1,12 @@
 {
-  "name": "use-common",
+  "name": "use-react-common",
   "version": "1.0.0",
   "description": "Common functionalities for React",
   "main": "dist/index.ts",
   "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "git@github.com:andyngdz/use-common.git"
+    "url": "git@github.com:andyngdz/use-react-common.git"
   },
   "author": "Andy D. Ng <itc.anhduy@gmail.com>",
   "license": "MIT",

@@ -17,6 +17,14 @@ Common functionalities for React
 
 ## Version History
 
+- 1.0.3
+
+  - Fix main file. It shuold be `dist/index.js` not (.ts)
+
+- 1.0.2
+
+  - Fix module not found
+
 - 1.0.1
 
   - Fix render sure type. It should return `React.ReactElement`

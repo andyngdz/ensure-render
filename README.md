@@ -17,6 +17,10 @@ Common functionalities for React
 
 ## Version History
 
+- 1.0.1
+
+  - Fix render sure type. It should return `React.ReactElement`
+
 - 1.0.0
   - Initial Release
   - Add render

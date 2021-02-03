@@ -68,6 +68,8 @@
 
     "forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */,
 
+    "jsx": "react",
+
     "declaration": true,
 
     "strictNullChecks": true,

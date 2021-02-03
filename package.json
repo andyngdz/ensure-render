@@ -19,10 +19,9 @@
   },
   "keywords": [],
   "private": false,
-  "dependencies": {
-    "react": "^17.0.1"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "react": "^17.0.1",
     "@types/react": "^17.0.1"
   }
 }

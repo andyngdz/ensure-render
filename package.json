@@ -1,0 +1,28 @@
+{
+  "name": "use-common",
+  "version": "1.0.0",
+  "description": "Common functionalities for React",
+  "main": "dist/index.ts",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:andyngdz/use-common.git"
+  },
+  "author": "Andy D. Ng <itc.anhduy@gmail.com>",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build"
+  },
+  "keywords": [],
+  "private": false,
+  "dependencies": {
+    "react": "^17.0.1"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.1"
+  }
+}

@@ -1,6 +1,7 @@
 import produce from 'immer'
 import { useState, useEffect } from 'react'
 import { isString, head, merge, orderBy } from 'lodash'
+import { useDeepCompareEffect } from 'react-use'
 import {
   ISort,
   ISortOptions,
@@ -58,7 +59,7 @@ const useSort = <T>(
   const [currentSort, setCurrentSort] = useState<keyof T>(initSort)
   const [sorts, setSorts] = useState<TSortValues>(dSorts)
 
-  useEffect(() => {
+  useDeepCompareEffect(() => {
     const newSorts: TSortValues = {}
     const firstRow = head(data)
 

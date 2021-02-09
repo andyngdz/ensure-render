@@ -1,6 +1,6 @@
 {
   "name": "use-react-common",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Common functionalities for React",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -21,7 +21,8 @@
   "private": false,
   "dependencies": {
     "immer": "^8.0.1",
-    "lodash": "^4.17.20"
+    "lodash": "^4.17.20",
+    "react-use": "^17.1.0"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.168",

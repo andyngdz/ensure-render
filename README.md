@@ -41,6 +41,11 @@ Take a look here: https://use-sort.vercel.app/
 
 ## Version History
 
+- 1.0.8
+
+  - Fix data update in useSort
+  - Add react-use
+
 - 1.0.7
 
   - Update types

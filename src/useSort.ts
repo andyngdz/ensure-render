@@ -7,7 +7,7 @@ import {
   IUseSort,
   TDirection,
   TSortValues
-} from 'types/sort'
+} from './types/sort'
 
 /**
  * @param data Array of data

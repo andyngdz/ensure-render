@@ -7,6 +7,7 @@ exports.useSort = void 0;
 var immer_1 = __importDefault(require("immer"));
 var react_1 = require("react");
 var lodash_1 = require("lodash");
+var react_use_1 = require("react-use");
 /**
  * @param data Array of data
  * @param initSort Default sort column
@@ -52,7 +53,7 @@ var useSort = function (data, initSort, options) {
     var _b = react_1.useState(true), loading = _b[0], setLoading = _b[1];
     var _c = react_1.useState(initSort), currentSort = _c[0], setCurrentSort = _c[1];
     var _d = react_1.useState(dSorts), sorts = _d[0], setSorts = _d[1];
-    react_1.useEffect(function () {
+    react_use_1.useDeepCompareEffect(function () {
         var newSorts = {};
         var firstRow = lodash_1.head(data);
         if (firstRow) {

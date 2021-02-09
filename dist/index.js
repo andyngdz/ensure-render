@@ -12,4 +12,5 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./render"), exports);
 __exportStar(require("./useSort"), exports);
+__exportStar(require("react-use"), exports);
 //# sourceMappingURL=index.js.map

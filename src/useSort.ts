@@ -74,7 +74,7 @@ const useSort = <T>(
     }
 
     setSorts(prevSorts => merge(newSorts, prevSorts))
-    setLoading(prevLoading => !prevLoading)
+    setLoading(false)
   }, [data, direction])
 
   const sortBy = (key: keyof T) => {

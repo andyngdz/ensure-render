@@ -17,6 +17,10 @@ Common functionalities for React
 
 ## Version History
 
+- 1.0.4
+
+  - Add useSort
+
 - 1.0.3
 
   - Fix main file. It shuold be `dist/index.js` not (.ts)

@@ -117,5 +117,5 @@ const useSort = <T>(
   return { loading, sortedData, sorts: sorts as Record<keyof T, ISort>, sortBy }
 }
 
-export default useSort
+export { useSort }
 export type { ISort, ISortOptions, IUseSort, TDirection, TSortValues }

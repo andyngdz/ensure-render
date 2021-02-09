@@ -17,6 +17,10 @@ Common functionalities for React
 
 ## Version History
 
+- 1.0.5
+
+  - Fix useSort export
+
 - 1.0.4
 
   - Add useSort

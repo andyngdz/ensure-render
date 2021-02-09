@@ -1,4 +1,4 @@
-import { ISort, ISortOptions, IUseSort, TDirection, TSortValues } from 'types/sort';
+import { ISort, ISortOptions, IUseSort, TDirection, TSortValues } from './types/sort';
 /**
  * @param data Array of data
  * @param initSort Default sort column

@@ -41,6 +41,10 @@ Take a look here: https://use-sort.vercel.app/
 
 ## Version History
 
+- 1.0.7
+
+  - Update types
+
 - 1.0.6
 
   - Update README

@@ -3,6 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.useSort = void 0;
 var immer_1 = __importDefault(require("immer"));
 var react_1 = require("react");
 var lodash_1 = require("lodash");
@@ -94,5 +95,5 @@ var useSort = function (data, initSort, options) {
         }, [sorts[currentSort].direction]);
     return { loading: loading, sortedData: sortedData, sorts: sorts, sortBy: sortBy };
 };
-exports.default = useSort;
+exports.useSort = useSort;
 //# sourceMappingURL=useSort.js.map

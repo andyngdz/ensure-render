@@ -30,5 +30,5 @@ import { ISort, ISortOptions, IUseSort, TDirection, TSortValues } from 'types/so
  * // => objects for [['barney', 36], ['barney', 34], ['fred', 48], ['fred', 42]]
  */
 declare const useSort: <T>(data: T[], initSort: keyof T, options?: ISortOptions<T>) => IUseSort<T>;
-export default useSort;
+export { useSort };
 export type { ISort, ISortOptions, IUseSort, TDirection, TSortValues };

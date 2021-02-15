@@ -41,6 +41,10 @@ Take a look here: https://use-sort.vercel.app/
 
 ## Version History
 
+- 1.1.0
+
+  - Improve render
+
 - 1.0.9
 
   - Fix useSort loading state

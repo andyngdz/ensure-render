@@ -65,7 +65,7 @@ var useSort = function (data, initSort, options) {
             });
         }
         setSorts(function (prevSorts) { return lodash_1.merge(newSorts, prevSorts); });
-        setLoading(function (prevLoading) { return !prevLoading; });
+        setLoading(false);
     }, [data, direction]);
     var sortBy = function (key) {
         var currentSortFor = currentSort;

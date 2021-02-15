@@ -41,6 +41,11 @@ Take a look here: https://use-sort.vercel.app/
 
 ## Version History
 
+- 1.1.1
+
+  - Add `useSort`
+  - Rename previous `useSort` to `useSortData`
+
 - 1.1.0
 
   - Improve render

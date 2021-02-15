@@ -1,14 +1,13 @@
 import produce from 'immer'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { isString, head, merge, orderBy } from 'lodash'
 import { useDeepCompareEffect } from 'react-use'
 import {
-  ISort,
+  TSortData,
   ISortOptions,
-  IUseSort,
-  TDirection,
-  TSortValues
-} from './types/sort'
+  IUseSortData,
+  TSortDataValues
+} from './types/sort-data'
 
 /**
  * @param data Array of data
@@ -40,13 +39,13 @@ import {
  * _.orderBy(users, ['user', 'age'], ['asc', 'desc']);
  * // => objects for [['barney', 36], ['barney', 34], ['fred', 48], ['fred', 42]]
  */
-const useSort = <T>(
+const useDataSort = <T>(
   data: Array<T>,
   initSort: keyof T,
   options: ISortOptions<T> = {
     direction: 'asc'
   }
-): IUseSort<T> => {
+): IUseSortData<T> => {
   const { direction, onSortBy } = options
 
   const dSorts = {
@@ -57,10 +56,10 @@ const useSort = <T>(
   }
   const [loading, setLoading] = useState(true)
   const [currentSort, setCurrentSort] = useState<keyof T>(initSort)
-  const [sorts, setSorts] = useState<TSortValues>(dSorts)
+  const [sorts, setSorts] = useState<TSortDataValues>(dSorts)
 
   useDeepCompareEffect(() => {
-    const newSorts: TSortValues = {}
+    const newSorts: TSortDataValues = {}
     const firstRow = head(data)
 
     if (firstRow) {
@@ -77,12 +76,12 @@ const useSort = <T>(
     setLoading(false)
   }, [data, direction])
 
-  const sortBy = (key: keyof T) => {
+  const onSort = (key: keyof T) => {
     const currentSortFor = currentSort as string
     const sortFor = key as string
 
     setSorts(
-      produce((draft: TSortValues) => {
+      produce((draft: TSortDataValues) => {
         if (currentSortFor !== sortFor) {
           draft[currentSortFor].active = false
           draft[currentSortFor].direction = direction
@@ -93,6 +92,7 @@ const useSort = <T>(
         } else {
           const nextDirection =
             draft[sortFor].direction === 'desc' ? 'asc' : 'desc'
+
           draft[sortFor].direction = nextDirection
         }
       })
@@ -107,16 +107,22 @@ const useSort = <T>(
         data,
         (item: T) => {
           const value = item[currentSort]
+
           if (isString(value)) {
             return value.toLocaleLowerCase()
           }
+
           return value
         },
         [sorts[currentSort as string].direction]
       )
 
-  return { loading, sortedData, sorts: sorts as Record<keyof T, ISort>, sortBy }
+  return {
+    loading,
+    sortedData,
+    sorts: sorts as Record<keyof T, TSortData>,
+    onSort
+  }
 }
 
-export { useSort }
-export type { ISort, ISortOptions, IUseSort, TDirection, TSortValues }
+export { useDataSort }

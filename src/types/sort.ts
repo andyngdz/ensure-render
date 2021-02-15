@@ -1,27 +1,21 @@
-type TDirection = 'asc' | 'desc'
+import { ISortBase } from './sort-base'
 
-type TSortValues = Record<string, ISort>
+export type TDirection = 'ASC' | 'DESC'
 
-interface ISort {
+export type TSort = ISortBase<TDirection>
+
+export interface ICurrentSort {
+  field: string
+
   direction: TDirection
-
-  active: boolean
 }
 
-interface IUseSort<T> {
-  sorts: Record<keyof T, ISort>
+export interface IUseSort {
+  current: ICurrentSort
 
-  sortedData: Array<T>
+  sorts?: TSortValues
 
-  sortBy: (key: keyof T) => void
-
-  loading: boolean
+  onSort: (field: string) => void
 }
 
-interface ISortOptions<T> {
-  direction: TDirection
-
-  onSortBy?: (data: T[]) => T[]
-}
-
-export { ISort, ISortOptions, IUseSort, TDirection, TSortValues }
+export type TSortValues = Record<string, TSort>

@@ -18,13 +18,13 @@ const Render = {
 
     if (readyData) {
       return onRender(readyData)
-    } else {
-      if (onLoading) {
-        return onLoading()
-      }
-
-      return <></>
     }
+
+    if (onLoading) {
+      return onLoading()
+    }
+
+    return <></>
   }
 }
 

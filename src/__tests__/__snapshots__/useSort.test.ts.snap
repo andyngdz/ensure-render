@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`useSort Should init correctly 1`] = `
+Object {
+  "current": Object {
+    "direction": "DESC",
+    "field": "id",
+  },
+  "onSort": [Function],
+  "sorts": Object {
+    "id": Object {
+      "active": true,
+      "direction": "DESC",
+    },
+    "name": Object {
+      "active": false,
+      "direction": "ASC",
+    },
+  },
+}
+`;
+
+exports[`useSort Should return state correctly after calling onSort 1`] = `
+Object {
+  "current": Object {
+    "direction": "ASC",
+    "field": "name",
+  },
+  "onSort": [Function],
+  "sorts": Object {
+    "id": Object {
+      "active": false,
+      "direction": "DESC",
+    },
+    "name": Object {
+      "active": true,
+      "direction": "ASC",
+    },
+  },
+}
+`;

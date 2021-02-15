@@ -41,6 +41,10 @@ Take a look here: https://use-sort.vercel.app/
 
 ## Version History
 
+- 1.1.2
+
+  - Fix init sort
+
 - 1.1.1
 
   - Add `useSort`

@@ -32,12 +32,10 @@ var Render = {
         if (readyData) {
             return onRender(readyData);
         }
-        else {
-            if (onLoading) {
-                return onLoading();
-            }
-            return react_1.default.createElement(react_1.default.Fragment, null);
+        if (onLoading) {
+            return onLoading();
         }
+        return react_1.default.createElement(react_1.default.Fragment, null);
     }
 };
 exports.Render = Render;

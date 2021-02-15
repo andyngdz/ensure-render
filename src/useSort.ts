@@ -1,49 +1,48 @@
-import { TSortValues, IUseSort, ICurrentSort } from './types/sort'
+import { TSortValues, IUseSort, ICurrentSort } from './types//sort'
 import { useDeepCompareEffect } from 'react-use'
 import { useState, useEffect } from 'react'
 import produce from 'immer'
 
-const useSort = (
-  fields: Array<string>,
-  initCurrent: ICurrentSort
-): IUseSort => {
-  const [current, setCurrent] = useState<ICurrentSort>(initCurrent)
+const useSort = (fields: Array<string>, initSort: ICurrentSort): IUseSort => {
+  const [current, setCurrent] = useState<ICurrentSort>(initSort)
   const [sorts, setSorts] = useState<TSortValues>()
 
   useDeepCompareEffect(() => {
+    const { field: initField, direction } = initSort
     const newSorts: TSortValues = {}
 
-    for (const field of fields) {
+    fields.forEach(field => {
       newSorts[field] = {
-        active: initCurrent.field == field,
-        direction: 'ASC'
+        active: initField === field,
+        direction: initField === field ? direction : 'ASC'
       }
-    }
+    })
 
     setSorts(newSorts)
   }, [fields])
 
   useEffect(() => {
-    let current
+    if (sorts) {
+      let current
 
-    for (const field in sorts) {
-      const { active, direction } = sorts[field]
+      Object.keys(sorts).forEach(field => {
+        const { active, direction } = sorts[field]
+        if (active) {
+          current = { field, direction }
+        }
+      })
 
-      if (active) {
-        current = { field, direction }
-      }
+      if (current) setCurrent(current)
     }
-
-    if (current) setCurrent(current)
   }, [sorts])
 
   const resetSortActive = (): void => {
     setSorts(prevState =>
       produce(prevState, draft => {
-        if (draft) {
-          for (const field in sorts) {
+        if (draft && sorts) {
+          Object.keys(sorts).forEach(field => {
             draft[field].active = false
-          }
+          })
         }
       })
     )

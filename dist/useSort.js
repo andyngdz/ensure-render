@@ -10,13 +10,13 @@ var immer_1 = __importDefault(require("immer"));
 var useSort = function (fields, initSort) {
     var _a = react_1.useState(initSort), current = _a[0], setCurrent = _a[1];
     var _b = react_1.useState(), sorts = _b[0], setSorts = _b[1];
+    var defaultField = initSort.field, defaultDirection = initSort.direction;
     react_use_1.useDeepCompareEffect(function () {
-        var initField = initSort.field, direction = initSort.direction;
         var newSorts = {};
         fields.forEach(function (field) {
             newSorts[field] = {
-                active: initField === field,
-                direction: initField === field ? direction : 'ASC'
+                active: defaultField === field,
+                direction: defaultDirection
             };
         });
         setSorts(newSorts);
@@ -40,6 +40,7 @@ var useSort = function (fields, initSort) {
                 if (draft && sorts) {
                     Object.keys(sorts).forEach(function (field) {
                         draft[field].active = false;
+                        draft[field].direction = defaultDirection;
                     });
                 }
             });
@@ -52,7 +53,7 @@ var useSort = function (fields, initSort) {
                 if (sorts && draft) {
                     var direction = sorts[field].direction;
                     if (field !== current.field) {
-                        draft[field].direction = 'ASC';
+                        draft[field].direction = defaultDirection;
                     }
                     else {
                         draft[field].direction = direction === 'ASC' ? 'DESC' : 'ASC';

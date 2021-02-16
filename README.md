@@ -41,6 +41,10 @@ Take a look here: https://use-sort.vercel.app/
 
 ## Version History
 
+- 1.1.3
+
+  - Fix sort default direction
+
 - 1.1.2
 
   - Fix init sort

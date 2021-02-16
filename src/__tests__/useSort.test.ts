@@ -27,6 +27,10 @@ describe('useSort', () => {
       result.current.onSort('name')
     })
 
+    await act(async () => {
+      result.current.onSort('name')
+    })
+
     expect(result.current).toMatchSnapshot()
   })
 })

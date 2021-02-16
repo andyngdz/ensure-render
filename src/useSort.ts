@@ -6,15 +6,15 @@ import produce from 'immer'
 const useSort = (fields: Array<string>, initSort: ICurrentSort): IUseSort => {
   const [current, setCurrent] = useState<ICurrentSort>(initSort)
   const [sorts, setSorts] = useState<TSortValues>()
+  const { field: defaultField, direction: defaultDirection } = initSort
 
   useDeepCompareEffect(() => {
-    const { field: initField, direction } = initSort
     const newSorts: TSortValues = {}
 
     fields.forEach(field => {
       newSorts[field] = {
-        active: initField === field,
-        direction: initField === field ? direction : 'ASC'
+        active: defaultField === field,
+        direction: defaultDirection
       }
     })
 
@@ -42,6 +42,7 @@ const useSort = (fields: Array<string>, initSort: ICurrentSort): IUseSort => {
         if (draft && sorts) {
           Object.keys(sorts).forEach(field => {
             draft[field].active = false
+            draft[field].direction = defaultDirection
           })
         }
       })
@@ -57,7 +58,7 @@ const useSort = (fields: Array<string>, initSort: ICurrentSort): IUseSort => {
           const { direction } = sorts[field]
 
           if (field !== current.field) {
-            draft[field].direction = 'ASC'
+            draft[field].direction = defaultDirection
           } else {
             draft[field].direction = direction === 'ASC' ? 'DESC' : 'ASC'
           }

@@ -14,7 +14,7 @@ Object {
     },
     "name": Object {
       "active": false,
-      "direction": "ASC",
+      "direction": "DESC",
     },
   },
 }

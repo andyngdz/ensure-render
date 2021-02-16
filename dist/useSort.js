@@ -11,28 +11,28 @@ var useSort = function (fields, initSort) {
     var _a = react_1.useState(initSort), current = _a[0], setCurrent = _a[1];
     var _b = react_1.useState(), sorts = _b[0], setSorts = _b[1];
     react_use_1.useDeepCompareEffect(function () {
-        var field = initSort.field, direction = initSort.direction;
+        var initField = initSort.field, direction = initSort.direction;
         var newSorts = {};
-        fields.forEach(function (value) {
-            newSorts[value] = {
-                active: field === value,
-                direction: field === value ? direction : 'ASC'
+        fields.forEach(function (field) {
+            newSorts[field] = {
+                active: initField === field,
+                direction: initField === field ? direction : 'ASC'
             };
         });
         setSorts(newSorts);
     }, [fields]);
     react_1.useEffect(function () {
-        var current;
         if (sorts) {
+            var current_1;
             Object.keys(sorts).forEach(function (field) {
                 var _a = sorts[field], active = _a.active, direction = _a.direction;
                 if (active) {
-                    current = { field: field, direction: direction };
+                    current_1 = { field: field, direction: direction };
                 }
             });
+            if (current_1)
+                setCurrent(current_1);
         }
-        if (current)
-            setCurrent(current);
     }, [sorts]);
     var resetSortActive = function () {
         setSorts(function (prevState) {

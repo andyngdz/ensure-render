@@ -11,10 +11,6 @@ Common functionalities for React
 - yarn install
 - yarn build
 
-## Authors
-
-- Andy D. Ng <itc.anhduy@gmail.com>
-
 ## Function
 
 ```
